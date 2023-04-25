@@ -1,6 +1,8 @@
 [submodule "hockfm-angular"]
 	path = hockfm-angular
 	url = git@github.com:BoonHock/hockfm-angular.git
+	branch = master
 [submodule "hockfm-nestjs"]
 	path = hockfm-nestjs
 	url = git@github.com:BoonHock/hockfm-nestjs.git
+	branch = master
