@@ -1,0 +1,45 @@
+version: "3.7"
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:15.2
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  hockfm-nestjs:
+    container_name: hockfm-nestjs
+    build: 
+      context: ./hockfm-nestjs
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PW: postgres
+      DB_NAME: postgres
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./hockfm-nestjs:/usr/src/app
+      - /usr/src/app/node_modules
+    command: [ npm, run, start:dev ]
+
+  hockfm-angular:
+    container_name: hockfm-angular
+    build:
+      context: ./hockfm-angular
+    depends_on:
+      - hockfm-nestjs
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./hockfm-angular:/usr/src/app
+      - /usr/src/app/node_modules
+    command:
+      [npm, start]
