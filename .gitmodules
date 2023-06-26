@@ -9,4 +9,3 @@
 [submodule "hockfm-php"]
 	path = hockfm-php
 	url = git@github.com:BoonHock/hockfm-php.git
-	branch = master
