@@ -6,3 +6,7 @@
 	path = hockfm-nestjs
 	url = git@github.com:BoonHock/hockfm-nestjs.git
 	branch = master
+[submodule "hockfm-php"]
+	path = hockfm-php
+	url = git@github.com:BoonHock/hockfm-php.git
+	branch = master
